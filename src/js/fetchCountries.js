@@ -5,7 +5,7 @@ import { Notify } from 'notiflix/build/notiflix-notify-aio';
 
  function  fetchCountries(name) {
   fetch(`https://restcountries.com/v3.1/name/${name}?fields=name,capital,population,flags,languages`).then(
-        (response) => {
+        response => {
             if (response.status === 404) {
                 throw new Error(response.status);
             }
