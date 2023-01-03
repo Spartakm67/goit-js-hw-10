@@ -10,10 +10,9 @@ import { Notify } from 'notiflix/build/notiflix-notify-aio';
                 throw new Error(response.status);
             }
           return response.json();
-          
-        }
-).catch(() => Notify.failure('Oops, there is no country with that name'));
-    };
+    }
+     ).catch(() => Notify.failure('Oops, there is no country with that name'));
+};
 
 function onFetchError(error) {
     Notify.failure('Oops, something wrong');
