@@ -18,25 +18,27 @@ input.addEventListener('input', debounce(onInputValueHandler, DEBOUNCE_DELAY));
 
 function onInputValueHandler(e) {
     e.preventDefault();
-    const name = e.target.value.trim();
+    const name = input.value.trim();
   if (!name) {
     Markup.clearMarkup();
     return;
   }
+    console.log(name);
+    
     Fetch.fetchCountries(name).then(data => {
+
             if (data.length > 10) {
                 Notify.info(
                     'Too many matches found. Please enter a more specific name.'
                 );
             } else if (data.length > 1 && data.length <= 10) {
-                Markup.clearMarkup();
+                // Markup.clearMarkup();
                 Markup.markupManyCountries(data);
             } else if (data.length === 1) {
-                Markup.clearMarkup()
+                // Markup.clearMarkup();
                 Markup.markupOneCountry(data);
             }
-        })
-        .catch(Fetch.onFetchError)
+        }).catch(Fetch.onFetchError);
         // .finally(Markup.clearMarkup);
 };
 

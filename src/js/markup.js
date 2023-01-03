@@ -2,6 +2,7 @@ const oneCountry = document.querySelector('.country-info');
 const manyCountries = document.querySelector('.country-list');
 
 
+
 function clearMarkup() {
     // input.reset();
     oneCountry.innerHTML = '';
@@ -13,7 +14,6 @@ function markupOneCountry(data) {
 
   const flag = countryData.flags.svg;
   const name = countryData.name.official;
-  
   const capital = countryData.capital.join(', ');
   const population = countryData.population.toLocaleString();
   const languages = Object.values(countryData.languages).join(', ');
