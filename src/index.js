@@ -1,7 +1,7 @@
 import './css/styles.css';
 
 import Notiflix from 'notiflix';
-import { Notify } from 'notiflix/build/notiflix-notify-aio';
+
 
 import Fetch from './js/fetchCountries';
 import Markup from './js/markup';
@@ -26,7 +26,7 @@ function onInputValueHandler(e) {
         .then(data => {
 
             if (data.length > 10) {
-                Notify.info(
+                Notiflix.Notify.info(
                     'Too many matches found. Please enter a more specific name.'
                 );
             } else if (data.length > 1 && data.length <= 10) {
@@ -39,3 +39,12 @@ function onInputValueHandler(e) {
         }).catch(Fetch.onFetchError);
 };
 
+Notiflix.Notify.init({
+  position: 'center-top',
+  width: '380px',
+  distance: '30px',
+  opacity: 1,
+  borderRadius: '5px',
+  rtl: false,
+  timeout: 3000,
+});

@@ -29,7 +29,7 @@ function markupManyCountries(data) {
   const manyCountriesMarkup = data
     .map(
       ({ flags, name }) =>
-        `<li class="country-list__li"><img src="${flags.svg}" alt="flag ${name.official}" width="40" height=auto style="margin-right: 10px"><span style="text-align: center">${name.official}</span></li>`
+        `<li class="country-list__li"><img src="${flags.svg}" alt="flag ${name.official}" width="40" height=auto style="margin-right: 10px"><span>${name.official}</span></li>`
     )
     .join('');
 
